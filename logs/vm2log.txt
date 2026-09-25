@@ -1,0 +1,12 @@
+Jun  7 21:29:53 7cbc78739e4c sshd[18]: Server listening on 0.0.0.0 port 22.
+Jun  7 21:29:53 7cbc78739e4c sshd[18]: Server listening on :: port 22.
+Jun  7 21:30:47 7cbc78739e4c su[24]: Successful su for webuser by root
+Jun  7 21:30:47 7cbc78739e4c su[24]: + ??? root:webuser
+Jun  7 21:30:47 7cbc78739e4c su[24]: pam_env(su:session): Unable to open env file: /etc/default/locale: No such file or directory
+Jun  7 21:30:47 7cbc78739e4c su[24]: pam_unix(su:session): session opened for user webuser by (uid=0)
+Jun  7 21:30:47 7cbc78739e4c su[24]: pam_systemd(su:session): Failed to connect to system bus: No such file or directory
+Jun  7 21:30:47 7cbc78739e4c sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=/usr/bin/find /tmp -exec whoami ;
+Jun  7 21:30:47 7cbc78739e4c sudo: pam_env(sudo:session): Unable to open env file: /etc/default/locale: No such file or directory
+Jun  7 21:30:47 7cbc78739e4c sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Jun  7 21:30:47 7cbc78739e4c sudo: pam_unix(sudo:session): session closed for user root
+Jun  7 21:30:47 7cbc78739e4c su[24]: pam_unix(su:session): session closed for user webuser

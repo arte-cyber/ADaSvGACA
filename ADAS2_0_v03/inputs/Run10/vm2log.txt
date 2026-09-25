@@ -1,0 +1,38 @@
+Sep 21 23:30:29 06637fa995c0 sshd[28]: Server listening on 0.0.0.0 port 22.
+Sep 21 23:30:29 06637fa995c0 sshd[28]: Server listening on :: port 22.
+Sep 21 23:31:10 06637fa995c0 sshd[45]: Bad protocol version identification '' from 192.168.60.1 port 59600
+Sep 21 23:31:32 06637fa995c0 sshd[46]: Bad protocol version identification '' from 192.168.60.1 port 57118
+Sep 21 23:31:46 06637fa995c0 sshd[47]: Bad protocol version identification '' from 192.168.60.1 port 53792
+Sep 21 23:32:02 06637fa995c0 sshd[48]: Bad protocol version identification '' from 192.168.60.1 port 49570
+Sep 21 23:32:13 06637fa995c0 sshd[49]: Bad protocol version identification '' from 192.168.60.1 port 51286
+Sep 21 23:32:35 06637fa995c0 sshd[50]: Bad protocol version identification '' from 192.168.60.1 port 42234
+Sep 21 23:32:51 06637fa995c0 sshd[51]: Bad protocol version identification '' from 192.168.60.1 port 52768
+Sep 21 23:33:06 06637fa995c0 sshd[52]: Bad protocol version identification '' from 192.168.60.1 port 58242
+Sep 21 23:33:30 06637fa995c0 sshd[53]: Bad protocol version identification '' from 192.168.60.1 port 47296
+Sep 21 23:33:41 06637fa995c0 sshd[54]: Bad protocol version identification '' from 192.168.60.1 port 36096
+Sep 21 23:33:59 06637fa995c0 sshd[55]: Bad protocol version identification '' from 192.168.60.1 port 34054
+Sep 21 23:34:18 06637fa995c0 sshd[56]: Bad protocol version identification '' from 192.168.60.1 port 43844
+Sep 21 23:34:33 06637fa995c0 sshd[57]: Bad protocol version identification '' from 192.168.60.1 port 55042
+Sep 21 23:34:58 06637fa995c0 sshd[58]: Bad protocol version identification '' from 192.168.60.1 port 36800
+Sep 21 23:35:12 06637fa995c0 sshd[59]: Bad protocol version identification '' from 192.168.60.1 port 41944
+Sep 21 23:35:24 06637fa995c0 sshd[60]: Bad protocol version identification '' from 192.168.60.1 port 37276
+Sep 21 23:35:37 06637fa995c0 sshd[61]: Bad protocol version identification '' from 192.168.60.1 port 35838
+Sep 21 23:35:57 06637fa995c0 sshd[62]: Bad protocol version identification '' from 192.168.60.1 port 35586
+Sep 21 23:36:09 06637fa995c0 sshd[63]: Bad protocol version identification '' from 192.168.60.1 port 38052
+Sep 21 23:36:23 06637fa995c0 sshd[64]: Bad protocol version identification '' from 192.168.60.1 port 58390
+Sep 21 23:36:44 06637fa995c0 sshd[65]: Bad protocol version identification '' from 192.168.60.1 port 48350
+Sep 21 23:36:46 06637fa995c0 sshd[66]: Accepted password for webuser from 192.168.60.5 port 57248 ssh2
+Sep 21 23:36:46 06637fa995c0 sshd[66]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 21 23:36:46 06637fa995c0 sshd[66]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 21 23:36:46 06637fa995c0 sshd[66]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 21 23:36:47 06637fa995c0 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=list
+Sep 21 23:36:47 06637fa995c0 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=/usr/bin/find /tmp -maxdepth 0 -exec /usr/bin/id ;
+Sep 21 23:36:47 06637fa995c0 sudo: pam_env(sudo:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 21 23:36:47 06637fa995c0 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Sep 21 23:36:47 06637fa995c0 sudo: pam_unix(sudo:session): session closed for user root
+Sep 21 23:36:47 06637fa995c0 sshd[77]: Received disconnect from 192.168.60.5 port 57248:11: disconnected by user
+Sep 21 23:36:47 06637fa995c0 sshd[77]: Disconnected from user webuser 192.168.60.5 port 57248
+Sep 21 23:36:47 06637fa995c0 sshd[66]: pam_unix(sshd:session): session closed for user webuser
+Sep 21 23:37:03 06637fa995c0 sshd[89]: Bad protocol version identification '' from 192.168.60.1 port 43924
+Sep 21 23:37:25 06637fa995c0 sshd[90]: Bad protocol version identification '' from 192.168.60.1 port 48762
+Sep 21 23:37:32 06637fa995c0 sshd[91]: Bad protocol version identification '' from 192.168.60.1 port 38656

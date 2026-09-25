@@ -1,0 +1,59 @@
+Sep 21 01:00:46 9ceb20ee1e29 sshd[27]: Server listening on 0.0.0.0 port 22.
+Sep 21 01:00:46 9ceb20ee1e29 sshd[27]: Server listening on :: port 22.
+Sep 21 01:01:16 9ceb20ee1e29 sshd[44]: Bad protocol version identification '' from 192.168.60.1 port 41058
+Sep 21 01:01:32 9ceb20ee1e29 sshd[45]: Bad protocol version identification '' from 192.168.60.1 port 52100
+Sep 21 01:01:50 9ceb20ee1e29 sshd[46]: Bad protocol version identification '' from 192.168.60.1 port 60142
+Sep 21 01:02:15 9ceb20ee1e29 sshd[47]: Bad protocol version identification '' from 192.168.60.1 port 41770
+Sep 21 01:02:33 9ceb20ee1e29 sshd[48]: Bad protocol version identification '' from 192.168.60.1 port 42470
+Sep 21 01:02:49 9ceb20ee1e29 sshd[49]: Bad protocol version identification '' from 192.168.60.1 port 55316
+Sep 21 01:03:02 9ceb20ee1e29 sshd[50]: Bad protocol version identification '' from 192.168.60.1 port 45308
+Sep 21 01:03:13 9ceb20ee1e29 sshd[51]: Bad protocol version identification '' from 192.168.60.1 port 55624
+Sep 21 01:03:28 9ceb20ee1e29 sshd[52]: Bad protocol version identification '' from 192.168.60.1 port 38630
+Sep 21 01:03:44 9ceb20ee1e29 sshd[53]: Bad protocol version identification '' from 192.168.60.1 port 57566
+Sep 21 01:04:01 9ceb20ee1e29 sshd[54]: Bad protocol version identification '' from 192.168.60.1 port 34866
+Sep 21 01:04:23 9ceb20ee1e29 sshd[55]: Bad protocol version identification '' from 192.168.60.1 port 47542
+Sep 21 01:04:34 9ceb20ee1e29 sshd[56]: Bad protocol version identification '' from 192.168.60.1 port 52352
+Sep 21 01:04:45 9ceb20ee1e29 sshd[57]: Bad protocol version identification '' from 192.168.60.1 port 42476
+Sep 21 01:04:57 9ceb20ee1e29 sshd[58]: Bad protocol version identification '' from 192.168.60.1 port 44608
+Sep 21 01:05:22 9ceb20ee1e29 sshd[59]: Bad protocol version identification '' from 192.168.60.1 port 43270
+Sep 21 01:05:36 9ceb20ee1e29 sshd[60]: Bad protocol version identification '' from 192.168.60.1 port 49268
+Sep 21 01:05:59 9ceb20ee1e29 sshd[61]: Bad protocol version identification '' from 192.168.60.1 port 60816
+Sep 21 01:06:24 9ceb20ee1e29 sshd[62]: Bad protocol version identification '' from 192.168.60.1 port 32808
+Sep 21 01:06:49 9ceb20ee1e29 sshd[63]: Bad protocol version identification '' from 192.168.60.1 port 39900
+Sep 21 01:07:09 9ceb20ee1e29 sshd[64]: Bad protocol version identification '' from 192.168.60.1 port 57960
+Sep 21 01:07:29 9ceb20ee1e29 sshd[65]: Bad protocol version identification '' from 192.168.60.1 port 57036
+Sep 21 01:07:52 9ceb20ee1e29 sshd[66]: Bad protocol version identification '' from 192.168.60.1 port 48732
+Sep 21 01:08:07 9ceb20ee1e29 sshd[67]: Bad protocol version identification '' from 192.168.60.1 port 56728
+Sep 21 01:08:30 9ceb20ee1e29 sshd[68]: Bad protocol version identification '' from 192.168.60.1 port 41658
+Sep 21 01:08:55 9ceb20ee1e29 sshd[69]: Bad protocol version identification '' from 192.168.60.1 port 54248
+Sep 21 01:09:16 9ceb20ee1e29 sshd[70]: Bad protocol version identification '' from 192.168.60.1 port 56646
+Sep 21 01:09:28 9ceb20ee1e29 sshd[71]: Bad protocol version identification '' from 192.168.60.1 port 54982
+Sep 21 01:09:46 9ceb20ee1e29 sshd[72]: Bad protocol version identification '' from 192.168.60.1 port 33160
+Sep 21 01:10:05 9ceb20ee1e29 sshd[73]: Bad protocol version identification '' from 192.168.60.1 port 58560
+Sep 21 01:10:20 9ceb20ee1e29 sshd[74]: Bad protocol version identification '' from 192.168.60.1 port 40096
+Sep 21 01:10:43 9ceb20ee1e29 sshd[75]: Bad protocol version identification '' from 192.168.60.1 port 40994
+Sep 21 01:10:55 9ceb20ee1e29 sshd[76]: Bad protocol version identification '' from 192.168.60.1 port 48334
+Sep 21 01:11:06 9ceb20ee1e29 sshd[77]: Bad protocol version identification '' from 192.168.60.1 port 43658
+Sep 21 01:11:21 9ceb20ee1e29 sshd[78]: Bad protocol version identification '' from 192.168.60.1 port 52128
+Sep 21 01:11:39 9ceb20ee1e29 sshd[79]: Bad protocol version identification '' from 192.168.60.1 port 40232
+Sep 21 01:11:52 9ceb20ee1e29 sshd[80]: Bad protocol version identification '' from 192.168.60.1 port 42890
+Sep 21 01:12:08 9ceb20ee1e29 sshd[81]: Bad protocol version identification '' from 192.168.60.1 port 53562
+Sep 21 01:12:33 9ceb20ee1e29 sshd[82]: Bad protocol version identification '' from 192.168.60.1 port 33122
+Sep 21 01:12:56 9ceb20ee1e29 sshd[83]: Bad protocol version identification '' from 192.168.60.1 port 55536
+Sep 21 01:13:17 9ceb20ee1e29 sshd[84]: Bad protocol version identification '' from 192.168.60.1 port 39676
+Sep 21 01:13:37 9ceb20ee1e29 sshd[85]: Accepted password for webuser from 192.168.60.5 port 38304 ssh2
+Sep 21 01:13:37 9ceb20ee1e29 sshd[85]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 21 01:13:37 9ceb20ee1e29 sshd[85]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 21 01:13:37 9ceb20ee1e29 sshd[85]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 21 01:13:37 9ceb20ee1e29 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=list
+Sep 21 01:13:37 9ceb20ee1e29 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=/usr/bin/find /tmp -maxdepth 0 -exec /usr/bin/id ;
+Sep 21 01:13:37 9ceb20ee1e29 sudo: pam_env(sudo:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 21 01:13:37 9ceb20ee1e29 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Sep 21 01:13:37 9ceb20ee1e29 sudo: pam_unix(sudo:session): session closed for user root
+Sep 21 01:13:37 9ceb20ee1e29 sshd[96]: Received disconnect from 192.168.60.5 port 38304:11: disconnected by user
+Sep 21 01:13:37 9ceb20ee1e29 sshd[96]: Disconnected from user webuser 192.168.60.5 port 38304
+Sep 21 01:13:37 9ceb20ee1e29 sshd[85]: pam_unix(sshd:session): session closed for user webuser
+Sep 21 01:13:41 9ceb20ee1e29 sshd[108]: Bad protocol version identification '' from 192.168.60.1 port 34000
+Sep 21 01:13:56 9ceb20ee1e29 sshd[109]: Bad protocol version identification '' from 192.168.60.1 port 56298
+Sep 21 01:14:11 9ceb20ee1e29 sshd[110]: Bad protocol version identification '' from 192.168.60.1 port 55022
+Sep 21 01:14:33 9ceb20ee1e29 sshd[111]: Bad protocol version identification '' from 192.168.60.1 port 53574

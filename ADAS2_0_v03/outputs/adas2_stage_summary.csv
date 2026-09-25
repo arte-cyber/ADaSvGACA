@@ -1,0 +1,66 @@
+dataset,stage,alert_count,highest_severity,max_confidence
+redteam_Demo1,Initial Access,3,Critical,0.96
+redteam_Demo1,Lateral Movement,2,Critical,0.88
+redteam_Demo1,Privilege Escalation,2,Critical,0.88
+redteam_Demo1,Rapid Follow-on Actions,4,High,0.84
+redteam_Demo1,Reconnaissance,3,High,0.90
+redteam_Demo2,Initial Access,5,Critical,0.96
+redteam_Demo2,Lateral Movement,4,Critical,0.88
+redteam_Demo2,Privilege Escalation,4,Critical,0.88
+redteam_Demo2,Rapid Follow-on Actions,6,High,0.84
+redteam_Demo2,Reconnaissance,5,High,0.90
+Run1,Initial Access,5,Critical,0.96
+Run1,Lateral Movement,5,Critical,0.88
+Run1,Privilege Escalation,5,Critical,0.94
+Run1,Rapid Follow-on Actions,6,High,0.84
+Run1,Reconnaissance,5,High,0.90
+Run10,Initial Access,5,Critical,0.96
+Run10,Lateral Movement,5,Critical,0.88
+Run10,Privilege Escalation,5,Critical,0.94
+Run10,Rapid Follow-on Actions,5,High,0.84
+Run10,Reconnaissance,5,High,0.90
+Run2,Initial Access,5,Critical,0.96
+Run2,Lateral Movement,5,Critical,0.88
+Run2,Privilege Escalation,5,Critical,0.94
+Run2,Rapid Follow-on Actions,6,High,0.84
+Run2,Reconnaissance,5,High,0.90
+Run3,Initial Access,5,Critical,0.96
+Run3,Lateral Movement,5,Critical,0.88
+Run3,Privilege Escalation,5,Critical,0.94
+Run3,Rapid Follow-on Actions,6,High,0.84
+Run3,Reconnaissance,5,High,0.90
+Run4,Initial Access,5,Critical,0.96
+Run4,Lateral Movement,5,Critical,0.88
+Run4,Privilege Escalation,5,Critical,0.94
+Run4,Rapid Follow-on Actions,6,High,0.84
+Run4,Reconnaissance,5,High,0.90
+Run5,Initial Access,5,Critical,0.96
+Run5,Lateral Movement,5,Critical,0.88
+Run5,Privilege Escalation,5,Critical,0.94
+Run5,Rapid Follow-on Actions,6,High,0.84
+Run5,Reconnaissance,5,High,0.90
+Run6,Initial Access,5,Critical,0.96
+Run6,Lateral Movement,5,Critical,0.88
+Run6,Privilege Escalation,5,Critical,0.94
+Run6,Rapid Follow-on Actions,6,High,0.84
+Run6,Reconnaissance,5,High,0.90
+Run7,Initial Access,5,Critical,0.96
+Run7,Lateral Movement,5,Critical,0.88
+Run7,Privilege Escalation,5,Critical,0.94
+Run7,Rapid Follow-on Actions,5,High,0.84
+Run7,Reconnaissance,5,High,0.90
+Run8,Initial Access,5,Critical,0.96
+Run8,Lateral Movement,5,Critical,0.88
+Run8,Privilege Escalation,5,Critical,0.94
+Run8,Rapid Follow-on Actions,5,High,0.84
+Run8,Reconnaissance,5,High,0.90
+Run9,Initial Access,5,Critical,0.96
+Run9,Lateral Movement,5,Critical,0.88
+Run9,Privilege Escalation,5,Critical,0.94
+Run9,Rapid Follow-on Actions,6,High,0.84
+Run9,Reconnaissance,5,High,0.90
+author1_seed,Initial Access,1,Critical,0.96
+author1_seed,Lateral Movement,1,High,0.72
+author1_seed,Privilege Escalation,1,Critical,0.94
+author1_seed,Rapid Follow-on Actions,1,Medium,0.77
+author1_seed,Reconnaissance,1,High,0.98

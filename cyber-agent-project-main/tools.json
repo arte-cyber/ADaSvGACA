@@ -1,0 +1,256 @@
+[
+  {
+    "name": "run_http_probe",
+    "description": "Run a safe HTTP probe against the authorized lab target. Use after reconnaissance identifies an HTTP service. Collects headers, a body preview, and basic indicators such as CGI or Apache references.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_nmap_scan",
+    "description": "Run an approved Nmap service/version scan against the authorized lab target. Use during enumeration to identify open ports and running services.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_nmap_nse",
+    "description": "Run an approved Nmap NSE vulnerability scan against the authorized lab target. Use after reconnaissance or service detection suggests a specific service or port that may warrant scripted vulnerability checks.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_shellshock_check",
+    "description": "Run an approved Shellshock (CVE-2014-6271) validation check against the authorized lab target. Use only after reconnaissance identifies an HTTP CGI service or other evidence suggesting the target may be vulnerable to Shellshock.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+	"name": "run_searchsploit_lookup",
+	"description": "Run SearchSploit to look up likely exploit candidates based on observed service, version, technology, or vulnerability evidence. Use after Nmap, HTTP probing, or other reconnaissance identifies something specific to search for.",
+	"parameters": {
+	  "type": "object",
+      "properties": {
+		"target": { "type": "string" },
+		"query": {
+			"type": "string",
+			"description": "SearchSploit query derived from evidence, such as 'Apache 2.4 CGI', 'Shellshock', 'Redis 6379 unauthenticated', or a specific service/version string."
+		}
+    },
+    "required": ["target", "query"]
+	}
+  },
+  {
+	"name": "run_nikto_scan",
+	"description": "Run a Nikto web vulnerability scan against the authorized lab target. Use after Nmap or HTTP probing confirms an HTTP service. Nikto may identify common web server misconfigurations, risky files, outdated software, or vulnerability indicators.",
+	"parameters": {
+	  "type": "object",
+	  "properties": {
+		"target": { "type": "string" }
+		},
+		"required": ["target"]
+	}
+  },
+  {
+	"name": "run_redis_check",
+	"description": "Safely check whether Redis is reachable on the authorized lab target and whether it exposes server information without authentication. Use after reconnaissance identifies Redis on port 6379. This does not modify Redis state or attempt persistence.",
+	"parameters": {
+	  "type": "object",
+      "properties": {
+        "target": { "type": "string" }
+        },
+		"required": ["target"]
+	}
+  },
+  {
+	"name": "run_idor_check",
+	"description": "Dynamically probe the authorized web application for insecure direct object reference behavior. Use after HTTP reconnaissance identifies object-style endpoints such as /profile/<id>. The check discovers profile identifiers from the landing page, requests them, and reports whether multiple distinct records are accessible without authorization changes.",
+	"parameters": {
+      "type": "object",
+      "properties": {
+        "target": { "type": "string" }
+      },
+      "required": ["target"]
+	}
+  },
+  {
+	"name": "run_linux_command",
+	"description": "Run a restricted, read-only Linux command on the Kali agent host for local reconnaissance and troubleshooting. Use only for safe inspection commands such as pwd, whoami, hostname, uname, id, ls, cat on allowed paths, grep on allowed paths, ps, or ss. Do not use for destructive actions, persistence, downloads, file writes, shells, pipes, redirects, or chained commands.",
+	"parameters": {
+		"type": "object",
+		"properties": {
+			"target": { "type": "string" },
+			"command": {
+				"type": "string",
+				"description": "A single allowed read-only Linux command, for example 'pwd', 'ls /tmp', 'ss -tulpen', or 'cat /etc/os-release'."
+			}
+		},
+		"required": ["target", "command"]
+	}
+  },
+  {
+    "name": "run_ssh_enum",
+    "description": "Enumerate SSH on the authorized lab target. Collects the SSH version, host-key fingerprints, cryptographic algorithms, and authentication methods. Authentication-method discovery initiates one login exchange for the supplied lab username but does not submit a password, guess credentials, execute commands, or transfer files.",
+    "parameters": {
+	    "type": "object",
+	    "properties": {
+		  "target": {"type": "string"},
+		  "username": {
+			"type": "string",
+			"description": "An authorized lab username used for a single authentication-method probe. No password is submitted."
+		  }
+	    },
+        "required": [
+          "target",
+		  "username"
+        ]
+    }
+  },
+  {
+    "name": "run_gobuster_scan",
+    "description": "Enumerate directories and files on an authorized HTTP lab target using a fixed local wordlist and conservative request concurrency. Use after Nmap or HTTP probing confirms a web service.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  {
+
+    "name": "run_whatweb",
+    "description": "Run WhatWeb technology fingerprinting against the authorized lab target. Use after identifying an HTTP service to collect web stack clues that guide later enumeration and vulnerability checks.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_dnsenum",
+    "description": "Run dnsenum DNS enumeration against the authorized target host. Use during reconnaissance to discover name servers, MX records, and host addresses that inform later phases.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_enum4linux",
+    "description": "Run enum4linux SMB/NetBIOS enumeration against the authorized target host. Use when reconnaissance indicates SMB/NetBIOS services to enumerate shares, users, and OS information.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_metasploit",
+    "description": "Run one approved Metasploit module from the local catalog against an authorized target. The module, action, and target are validated before msfconsole runs. V1 supports approved auxiliary scanner modules only.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": { "type": "string" },
+        "module": {
+          "type": "string",
+          "description": "Approved Metasploit module path from the local catalog, e.g. auxiliary/scanner/http/http_version.",
+		  "enum": [
+			"auxiliary/scanner/http/http_version",
+			"auxiliary/scanner/http/robots_txt",
+			"auxiliary/scanner/ssh/ssh_version",
+			"auxiliary/scanner/redis/redis_server",
+			"exploit/multi/http/apache_mod_cgi_bash_env_exec"
+		]
+        },
+		"action": {
+			"type": "string",
+			"description": "Approved module action. V1 supports run.",
+			"enum": ["run", "check"]
+		},
+		"payload": {
+			"type": "string",
+			"description": "Approved payload from the catalog. For Shellshock run, use linux/x86/shell/reverse_tcp.",
+			"enum": ["linux/x86/shell/reverse_tcp"]
+		}
+      },
+      "required": ["target", "module"]
+    }
+  },
+  {
+    "name": "run_linpeas",
+    "description": "Run the read-only linpeas privilege-escalation enumeration on an established foothold. Use during post-exploitation to identify SUID binaries, sudo misconfigurations, writable paths, and kernel exploit hints. Performs discovery only.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+    }
+  },
+  {
+    "name": "run_loot",
+    "description": "Collect a fixed set of read-only host identity and context artifacts from an established foothold (id, uname, os-release, hostname, network info). Non-destructive evidence collection for reporting.",
+    "parameters": {
+      "type": "object",
+      "properties": { "target": { "type": "string" } },
+      "required": ["target"]
+	}
+  },
+  {
+	"name": "run_lateral_privesc_proof",
+	"description": "Perform a tightly controlled lateral-movement and privilege-escalation proof after a validated Shellshock foothold. The capability connects from the compromised VM1 target to the fixed internal VM2 SSH service using a backend-held lab credential, validates access as webuser, executes a fixed sudo-find root identity proof, and closes all sessions. The credential is never exposed to the model.",
+	"parameters": {
+	  "type": "object",
+	  "properties": {
+	    "target": {
+		  "type": "string"
+		}
+	  },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  {
+    "name": "run_redis_canary",
+    "description": "Prove unauthorized Redis write capability on the authorized Redis target using a randomized temporary canary. The capability first reconfirms unauthenticated access, writes a key with a 60-second expiration, verifies its value, deletes it, and confirms cleanup. Use only after Redis enumeration indicates unauthenticated access.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    }
+  },
+  {
+    "name": "run_port_discovery",
+    "description": "Run bounded Nmap port/service discovery against an authorized host. Use this to discover open or filtered services before selecting service-specific tools.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "Authorized host only, for example 192.168.185.3."
+        }
+      },
+      "required": ["target"]
+    }
+  }
+]

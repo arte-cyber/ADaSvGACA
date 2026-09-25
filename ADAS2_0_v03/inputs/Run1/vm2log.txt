@@ -1,0 +1,90 @@
+Sep 20 23:03:51 3f1f9b3df0a0 sshd[27]: Server listening on 0.0.0.0 port 22.
+Sep 20 23:03:51 3f1f9b3df0a0 sshd[27]: Server listening on :: port 22.
+Sep 20 23:08:39 3f1f9b3df0a0 sshd[50]: Accepted password for webuser from 192.168.60.5 port 36604 ssh2
+Sep 20 23:08:39 3f1f9b3df0a0 sshd[50]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 20 23:08:39 3f1f9b3df0a0 sshd[50]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 20 23:08:39 3f1f9b3df0a0 sshd[50]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 20 23:08:40 3f1f9b3df0a0 sshd[61]: Received disconnect from 192.168.60.5 port 36604:11: disconnected by user
+Sep 20 23:08:40 3f1f9b3df0a0 sshd[61]: Disconnected from user webuser 192.168.60.5 port 36604
+Sep 20 23:08:40 3f1f9b3df0a0 sshd[50]: pam_unix(sshd:session): session closed for user webuser
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[63]: Accepted password for webuser from 192.168.60.5 port 57786 ssh2
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[63]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[63]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[63]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 20 23:08:55 3f1f9b3df0a0 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=list
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[74]: Received disconnect from 192.168.60.5 port 57786:11: disconnected by user
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[74]: Disconnected from user webuser 192.168.60.5 port 57786
+Sep 20 23:08:55 3f1f9b3df0a0 sshd[63]: pam_unix(sshd:session): session closed for user webuser
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[76]: Accepted password for webuser from 192.168.60.5 port 44218 ssh2
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[76]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[76]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[76]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 20 23:09:11 3f1f9b3df0a0 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=/usr/bin/find /tmp -maxdepth 0 -exec /usr/bin/id ;
+Sep 20 23:09:11 3f1f9b3df0a0 sudo: pam_env(sudo:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 20 23:09:11 3f1f9b3df0a0 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Sep 20 23:09:11 3f1f9b3df0a0 sudo: pam_unix(sudo:session): session closed for user root
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[87]: Received disconnect from 192.168.60.5 port 44218:11: disconnected by user
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[87]: Disconnected from user webuser 192.168.60.5 port 44218
+Sep 20 23:09:11 3f1f9b3df0a0 sshd[76]: pam_unix(sshd:session): session closed for user webuser
+Sep 20 23:29:59 3f1f9b3df0a0 sshd[91]: Bad protocol version identification '' from 192.168.60.1 port 34962
+Sep 20 23:30:16 3f1f9b3df0a0 sshd[92]: Bad protocol version identification '' from 192.168.60.1 port 43956
+Sep 20 23:30:39 3f1f9b3df0a0 sshd[93]: Bad protocol version identification '' from 192.168.60.1 port 53958
+Sep 20 23:30:59 3f1f9b3df0a0 sshd[94]: Bad protocol version identification '' from 192.168.60.1 port 40208
+Sep 20 23:31:21 3f1f9b3df0a0 sshd[95]: Bad protocol version identification '' from 192.168.60.1 port 44218
+Sep 20 23:31:45 3f1f9b3df0a0 sshd[96]: Bad protocol version identification '' from 192.168.60.1 port 38526
+Sep 20 23:31:58 3f1f9b3df0a0 sshd[97]: Bad protocol version identification '' from 192.168.60.1 port 59468
+Sep 20 23:32:21 3f1f9b3df0a0 sshd[98]: Bad protocol version identification '' from 192.168.60.1 port 54660
+Sep 20 23:32:41 3f1f9b3df0a0 sshd[99]: Bad protocol version identification '' from 192.168.60.1 port 47652
+Sep 20 23:32:52 3f1f9b3df0a0 sshd[100]: Bad protocol version identification '' from 192.168.60.1 port 58716
+Sep 20 23:33:09 3f1f9b3df0a0 sshd[101]: Bad protocol version identification '' from 192.168.60.1 port 43738
+Sep 20 23:33:34 3f1f9b3df0a0 sshd[102]: Bad protocol version identification '' from 192.168.60.1 port 53790
+Sep 20 23:33:58 3f1f9b3df0a0 sshd[103]: Bad protocol version identification '' from 192.168.60.1 port 57462
+Sep 20 23:34:20 3f1f9b3df0a0 sshd[104]: Bad protocol version identification '' from 192.168.60.1 port 56490
+Sep 20 23:34:36 3f1f9b3df0a0 sshd[105]: Bad protocol version identification '' from 192.168.60.1 port 59268
+Sep 20 23:34:51 3f1f9b3df0a0 sshd[106]: Bad protocol version identification '' from 192.168.60.1 port 42276
+Sep 20 23:35:13 3f1f9b3df0a0 sshd[107]: Bad protocol version identification '' from 192.168.60.1 port 58168
+Sep 20 23:35:26 3f1f9b3df0a0 sshd[108]: Bad protocol version identification '' from 192.168.60.1 port 41322
+Sep 20 23:35:45 3f1f9b3df0a0 sshd[109]: Bad protocol version identification '' from 192.168.60.1 port 56286
+Sep 20 23:36:06 3f1f9b3df0a0 sshd[110]: Bad protocol version identification '' from 192.168.60.1 port 45912
+Sep 20 23:36:28 3f1f9b3df0a0 sshd[111]: Bad protocol version identification '' from 192.168.60.1 port 41088
+Sep 20 23:36:44 3f1f9b3df0a0 sshd[113]: Bad protocol version identification '' from 192.168.60.1 port 38180
+Sep 20 23:36:56 3f1f9b3df0a0 sshd[114]: Bad protocol version identification '' from 192.168.60.1 port 57264
+Sep 20 23:37:14 3f1f9b3df0a0 sshd[115]: Bad protocol version identification '' from 192.168.60.1 port 36754
+Sep 20 23:37:25 3f1f9b3df0a0 sshd[116]: Bad protocol version identification '' from 192.168.60.1 port 42588
+Sep 20 23:37:42 3f1f9b3df0a0 sshd[117]: Bad protocol version identification '' from 192.168.60.1 port 55918
+Sep 20 23:37:55 3f1f9b3df0a0 sshd[118]: Bad protocol version identification '' from 192.168.60.1 port 51512
+Sep 20 23:38:16 3f1f9b3df0a0 sshd[119]: Bad protocol version identification '' from 192.168.60.1 port 53742
+Sep 20 23:38:27 3f1f9b3df0a0 sshd[120]: Bad protocol version identification '' from 192.168.60.1 port 35182
+Sep 20 23:38:38 3f1f9b3df0a0 sshd[121]: Bad protocol version identification '' from 192.168.60.1 port 39560
+Sep 20 23:38:50 3f1f9b3df0a0 sshd[122]: Bad protocol version identification '' from 192.168.60.1 port 45950
+Sep 20 23:39:11 3f1f9b3df0a0 sshd[123]: Bad protocol version identification '' from 192.168.60.1 port 49994
+Sep 20 23:39:27 3f1f9b3df0a0 sshd[124]: Bad protocol version identification '' from 192.168.60.1 port 48980
+Sep 20 23:39:44 3f1f9b3df0a0 sshd[125]: Bad protocol version identification '' from 192.168.60.1 port 50496
+Sep 20 23:40:04 3f1f9b3df0a0 sshd[126]: Bad protocol version identification '' from 192.168.60.1 port 55282
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[127]: Accepted password for webuser from 192.168.60.5 port 37038 ssh2
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[127]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[127]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[127]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 20 23:40:15 3f1f9b3df0a0 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=list
+Sep 20 23:40:15 3f1f9b3df0a0 sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=/usr/bin/find /tmp -maxdepth 0 -exec /usr/bin/id ;
+Sep 20 23:40:15 3f1f9b3df0a0 sudo: pam_env(sudo:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 20 23:40:15 3f1f9b3df0a0 sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Sep 20 23:40:15 3f1f9b3df0a0 sudo: pam_unix(sudo:session): session closed for user root
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[138]: Received disconnect from 192.168.60.5 port 37038:11: disconnected by user
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[138]: Disconnected from user webuser 192.168.60.5 port 37038
+Sep 20 23:40:15 3f1f9b3df0a0 sshd[127]: pam_unix(sshd:session): session closed for user webuser
+Sep 20 23:40:21 3f1f9b3df0a0 sshd[150]: Bad protocol version identification '' from 192.168.60.1 port 40796
+Sep 20 23:40:37 3f1f9b3df0a0 sshd[151]: Bad protocol version identification '' from 192.168.60.1 port 40634
+Sep 20 23:41:01 3f1f9b3df0a0 sshd[152]: Bad protocol version identification '' from 192.168.60.1 port 45984
+Sep 20 23:41:23 3f1f9b3df0a0 sshd[153]: Bad protocol version identification '' from 192.168.60.1 port 40074
+Sep 20 23:41:35 3f1f9b3df0a0 sshd[154]: Bad protocol version identification '' from 192.168.60.1 port 51074
+Sep 20 23:41:46 3f1f9b3df0a0 sshd[155]: Bad protocol version identification '' from 192.168.60.1 port 50146
+Sep 20 23:41:57 3f1f9b3df0a0 sshd[156]: Bad protocol version identification '' from 192.168.60.1 port 38920
+Sep 20 23:42:13 3f1f9b3df0a0 sshd[157]: Bad protocol version identification '' from 192.168.60.1 port 46858
+Sep 20 23:42:25 3f1f9b3df0a0 sshd[158]: Bad protocol version identification '' from 192.168.60.1 port 38264
+Sep 20 23:42:37 3f1f9b3df0a0 sshd[159]: Bad protocol version identification '' from 192.168.60.1 port 52496
+Sep 20 23:42:56 3f1f9b3df0a0 sshd[160]: Bad protocol version identification '' from 192.168.60.1 port 37356
+Sep 20 23:43:14 3f1f9b3df0a0 sshd[161]: Bad protocol version identification '' from 192.168.60.1 port 54202
+Sep 20 23:43:29 3f1f9b3df0a0 sshd[162]: Bad protocol version identification '' from 192.168.60.1 port 54666
+Sep 20 23:43:54 3f1f9b3df0a0 sshd[163]: Bad protocol version identification '' from 192.168.60.1 port 59554
+Sep 20 23:44:11 3f1f9b3df0a0 sshd[164]: Bad protocol version identification '' from 192.168.60.1 port 33064

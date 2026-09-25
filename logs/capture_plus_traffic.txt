@@ -1,0 +1,70 @@
+# HOW TO RUN:
+# Follow author2's instructions to set up the lab VM and Docker Containers
+# Run: nano /home/seed/pentest-lab/adas-testbed/capture_plus_traffic.sh
+# Copy and paste this script in
+# Save and exit with with Ctrl+O, hit enter, and then Ctrl+X
+# Run: chmod +x /home/seed/pentest-lab/adas-testbed/capture_plus_traffic.sh
+# Run: sudo bash ./capture_plus_traffic.sh 600
+# Note: 600 is 10 minutes
+# Run any attacks in a seperate terminal while this capture script runs
+# After the attack go back to the terminal window with this script running, end it with Ctrl+C
+# See output on desktop
+
+ 
+DURATION=${1:-300}
+OUTPUT="/home/seed/Desktop/adas-capture"
+BRIDGE=$(ip link | grep -o 'br-[a-f0-9]*' | head -1)
+ 
+mkdir -p "$OUTPUT"
+ 
+cleanup() {
+    echo "[*] Stopping"
+    kill $(jobs -p) 2>/dev/null
+    sleep 2
+    kill -9 $(jobs -p) 2>/dev/null
+
+    # VM1 — Apache access log
+    docker cp vm1-shellshock:/var/log/apache2/access.log "$OUTPUT/vm1log.txt" 2>/dev/null
+    docker cp vm1-shellshock:/usr/local/apache2/logs/access_log "$OUTPUT/vm1log.txt" 2>/dev/null
+    # VM2 — auth.log
+    docker cp vm2-redis:/var/log/auth.log "$OUTPUT/vm2log.txt" 2>/dev/null
+    # VM3 — Flask logs (stdout)
+    docker logs vm3-webapp > "$OUTPUT/vm3log.txt" 2>&1
+
+    echo "[✓] Done. Output in $OUTPUT/"
+    ls -lh "$OUTPUT"
+    exit 0
+}
+trap cleanup INT TERM
+ 
+# Start packet capture
+echo "[*] Capturing on $BRIDGE for ${DURATION}s ..."
+tcpdump -i "$BRIDGE" -w "$OUTPUT/capture.pcap" -U &
+ 
+sleep 1
+ 
+# Normal web browsing — VM1 (Apache :80)
+(while true; do
+    curl -s http://192.168.60.5/ http://192.168.60.5/about.html http://192.168.60.5/favicon.ico http://192.168.60.5/robots.txt
+    sleep $((RANDOM % 5 + 2))
+done) >/dev/null 2>&1 &
+
+# Normal app usage — VM3 (Flask :5000)
+(while true; do
+    curl -s http://192.168.60.7:5000/ http://192.168.60.7:5000/profile/1 http://192.168.60.7:5000/profile/2
+    sleep $((RANDOM % 7 + 3))
+done) >/dev/null 2>&1 &
+ 
+# Health checks — VM2 (SSH :22, Redis :6379) + ICMP pings
+(while true; do
+    echo "" | nc -w1 192.168.60.6 22 >/dev/null 2>&1 || true
+    echo "PING" | nc -w1 192.168.60.6 6379 >/dev/null 2>&1 || true
+    ping -c1 -W1 192.168.60.5 >/dev/null 2>&1
+    ping -c1 -W1 192.168.60.6 >/dev/null 2>&1
+    ping -c1 -W1 192.168.60.7 >/dev/null 2>&1
+    sleep $((RANDOM % 15 + 10))
+done) &
+ 
+echo "[*] Running. Ctrl+C or wait ${DURATION}s."
+sleep "$DURATION"
+cleanup

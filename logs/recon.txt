@@ -1,0 +1,24 @@
+=== Nmap Reconnaissance Scan ===
+Scan performed at: Sun 07 Jun 2026 06:01:59 PM EDT
+
+Starting Nmap 7.80 ( https://nmap.org ) at 2026-06-07 18:01 EDT
+Nmap scan report for 192.168.60.5
+Host is up (0.0000070s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+80/tcp open  http
+MAC Address: 02:42:C0:A8:3C:05 (Unknown)
+
+Nmap scan report for 192.168.60.6
+Host is up (0.0000070s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+MAC Address: 02:42:C0:A8:3C:06 (Unknown)
+
+Nmap scan report for 192.168.60.7
+Host is up (0.0000070s latency).
+All 1000 scanned ports on 192.168.60.7 are closed
+MAC Address: 02:42:C0:A8:3C:07 (Unknown)
+
+Nmap done: 3 IP addresses (3 hosts up) scanned in 0.58 seconds

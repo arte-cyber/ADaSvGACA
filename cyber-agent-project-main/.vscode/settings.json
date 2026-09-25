@@ -1,0 +1,7 @@
+{
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/kali_agent",
+    "${workspaceFolder}/controller"
+  ],
+  "python.analysis.autoSearchPaths": true
+}

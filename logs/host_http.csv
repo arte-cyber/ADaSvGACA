@@ -1,0 +1,4 @@
+timestamp,vm,src_ip,method,uri_len,uri_depth,uri_special_chars,uri_has_ext,resource_id,status,resp_size,ua_len,line_len,label
+07/Jun/2026:22:03:14 +0000,vm1,192.168.60.1,0,11,1,0,1,0,200,187,57,144,-1
+07/Jun/2026 22:01:30,vm3,192.168.60.6,0,10,2,0,0,1,200,0,0,71,-1
+07/Jun/2026 22:01:30,vm3,192.168.60.6,0,10,2,0,0,2,200,0,0,71,-1

@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+*.env
+*.log
+
+controller/private_config.py
+controller/api_keys.py
+controller/reports/
+
+# Runtime assessment evidence
+controller/runs/
+
+*.key

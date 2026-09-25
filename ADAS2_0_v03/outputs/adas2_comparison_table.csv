@@ -1,0 +1,6 @@
+kill_chain_stage,ground_truth_from_redteam_or_seed,original_ADaS_baseline,ADaS_2_0_stage_mapped,main_evidence_sources
+Reconnaissance,Yes,TBD - run unmodified ADaS baseline on the same conn_features.csv,Yes,Exercise Transcript.txt; assessment.json; events.jsonl; messages.json; recon.txt; report.md; report_20260716T021920Z.md; vm1log.txt
+Initial Access,Yes,TBD - run unmodified ADaS baseline on the same conn_features.csv,Yes,Exercise Transcript.txt; assessment.json; events.jsonl; messages.json; report.md; report_20260716T021920Z.md; vm1log.txt
+Privilege Escalation,Yes,TBD - run unmodified ADaS baseline on the same conn_features.csv,Yes,Exercise Transcript.txt; assessment.json; events.jsonl; messages.json; report.md; report_20260716T021920Z.md; vm2log.txt
+Lateral Movement,Yes,TBD - run unmodified ADaS baseline on the same conn_features.csv,Yes,Exercise Transcript.txt; assessment.json; events.jsonl; messages.json; report.md; report_20260716T021920Z.md; vm2log.txt
+Rapid Follow-on Actions,Yes,TBD - run unmodified ADaS baseline on the same conn_features.csv,Yes,Exercise Transcript.txt; assessment.json; events.jsonl; messages.json; report.md; report_20260716T021920Z.md; vm3log.txt

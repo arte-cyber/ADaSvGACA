@@ -1,0 +1,37 @@
+Sep 21 22:07:37 e154487618fb sshd[26]: Server listening on 0.0.0.0 port 22.
+Sep 21 22:07:37 e154487618fb sshd[26]: Server listening on :: port 22.
+Sep 21 22:08:08 e154487618fb sshd[43]: Bad protocol version identification '' from 192.168.60.1 port 33056
+Sep 21 22:08:25 e154487618fb sshd[44]: Bad protocol version identification '' from 192.168.60.1 port 53616
+Sep 21 22:08:38 e154487618fb sshd[45]: Bad protocol version identification '' from 192.168.60.1 port 47606
+Sep 21 22:08:56 e154487618fb sshd[46]: Bad protocol version identification '' from 192.168.60.1 port 56950
+Sep 21 22:09:13 e154487618fb sshd[47]: Bad protocol version identification '' from 192.168.60.1 port 46530
+Sep 21 22:09:26 e154487618fb sshd[48]: Bad protocol version identification '' from 192.168.60.1 port 39206
+Sep 21 22:09:39 e154487618fb sshd[49]: Bad protocol version identification '' from 192.168.60.1 port 56738
+Sep 21 22:10:04 e154487618fb sshd[50]: Bad protocol version identification '' from 192.168.60.1 port 47800
+Sep 21 22:10:25 e154487618fb sshd[51]: Bad protocol version identification '' from 192.168.60.1 port 51634
+Sep 21 22:10:50 e154487618fb sshd[52]: Bad protocol version identification '' from 192.168.60.1 port 57000
+Sep 21 22:11:03 e154487618fb sshd[53]: Bad protocol version identification '' from 192.168.60.1 port 41366
+Sep 21 22:11:26 e154487618fb sshd[54]: Bad protocol version identification '' from 192.168.60.1 port 60102
+Sep 21 22:11:43 e154487618fb sshd[55]: Bad protocol version identification '' from 192.168.60.1 port 58664
+Sep 21 22:11:59 e154487618fb sshd[56]: Bad protocol version identification '' from 192.168.60.1 port 51520
+Sep 21 22:12:16 e154487618fb sshd[57]: Bad protocol version identification '' from 192.168.60.1 port 42272
+Sep 21 22:12:31 e154487618fb sshd[58]: Bad protocol version identification '' from 192.168.60.1 port 40088
+Sep 21 22:12:53 e154487618fb sshd[59]: Bad protocol version identification '' from 192.168.60.1 port 58438
+Sep 21 22:13:11 e154487618fb sshd[60]: Bad protocol version identification '' from 192.168.60.1 port 54124
+Sep 21 22:13:24 e154487618fb sshd[61]: Bad protocol version identification '' from 192.168.60.1 port 52208
+Sep 21 22:13:43 e154487618fb sshd[62]: Accepted password for webuser from 192.168.60.5 port 33884 ssh2
+Sep 21 22:13:43 e154487618fb sshd[62]: pam_unix(sshd:session): session opened for user webuser by (uid=0)
+Sep 21 22:13:43 e154487618fb sshd[62]: pam_systemd(sshd:session): Failed to connect to system bus: No such file or directory
+Sep 21 22:13:43 e154487618fb sshd[62]: pam_env(sshd:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 21 22:13:43 e154487618fb sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=list
+Sep 21 22:13:43 e154487618fb sudo:  webuser : TTY=unknown ; PWD=/home/webuser ; USER=root ; COMMAND=/usr/bin/find /tmp -maxdepth 0 -exec /usr/bin/id ;
+Sep 21 22:13:43 e154487618fb sudo: pam_env(sudo:session): Unable to open env file: /etc/default/locale: No such file or directory
+Sep 21 22:13:43 e154487618fb sudo: pam_unix(sudo:session): session opened for user root by (uid=0)
+Sep 21 22:13:43 e154487618fb sudo: pam_unix(sudo:session): session closed for user root
+Sep 21 22:13:43 e154487618fb sshd[73]: Received disconnect from 192.168.60.5 port 33884:11: disconnected by user
+Sep 21 22:13:43 e154487618fb sshd[73]: Disconnected from user webuser 192.168.60.5 port 33884
+Sep 21 22:13:43 e154487618fb sshd[62]: pam_unix(sshd:session): session closed for user webuser
+Sep 21 22:13:43 e154487618fb sshd[85]: Bad protocol version identification '' from 192.168.60.1 port 41270
+Sep 21 22:14:06 e154487618fb sshd[86]: Bad protocol version identification '' from 192.168.60.1 port 45660
+Sep 21 22:14:24 e154487618fb sshd[87]: Bad protocol version identification '' from 192.168.60.1 port 35112
+Sep 21 22:14:39 e154487618fb sshd[88]: Bad protocol version identification '' from 192.168.60.1 port 53118

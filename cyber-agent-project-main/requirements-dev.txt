@@ -1,0 +1,4 @@
+# Tooling for running the test suite locally.
+# Install with: pip install -r requirements-dev.txt
+pytest
+flask          # needed by the kali_agent route tests (tests/test_routes.py)

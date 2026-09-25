@@ -1,0 +1,20 @@
+# Ignore everything by default
+*
+
+# Allow Git to enter subdirectories
+!*/
+
+# Whitelist log and data
+!*.log
+!*.txt
+!*.pcap
+!*.json
+!*.jsonl
+!*.csv
+!*.md
+!.gitignore
+
+# Ignore tracking
+.git/
+__pycache__/
+*.pyc
